@@ -8,15 +8,18 @@
 	<p id="text"></p>
 
 	<script type="text/javascript">
-		var fallbackLink;
+	
 			 var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone'),
         				isAndroid = navigator.userAgent.match('Android');
 
 			var elements = document.getElementById('text');
-				
-			if (isiOS || isAndroid) {
-				fallbackLink = isAndroid ? 'android' :
-                                 'ios' ;
+			if(isAndroid)
+			{
+				elements.innerHTML = 'and';
+			}
+			if(isiOS)
+			{
+				elements.innerHTML = 'ios';
 			}
 			
 	</script>
