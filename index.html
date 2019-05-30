@@ -8,36 +8,21 @@
 	<p id="text"></p>
 
 	<script type="text/javascript">
-		var isMobile = {
-		    Android: function() {
-		        return navigator.userAgent.match(/Android/i);
-		    },
-		    BlackBerry: function() {
-		        return navigator.userAgent.match(/BlackBerry/i);
-		    },
-		    iOS: function() {
-		        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-		    },
-		    Opera: function() {
-		        return navigator.userAgent.match(/Opera Mini/i);
-		    },
-		    Windows: function() {
-		        return navigator.userAgent.match(/IEMobile/i);
-		    },
-		    any: function() {
-		        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-		    }
-		};
-		var element = document.getElementById('text');
-		if (isMobile.Android()) {
-  			element.innerHTML = "You are using Android";
-		}
-		if (isMobile.iOS()) {
-  			element.innerHTML = "You are using IOS";
-		}
-		else {
-			element.innerHTML = "You are using windows";
-		}
+			var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+			var elements = document.getElementById('text');
+				// Windows Phone must come first because its UA also contains "Android"
+				
+				if (/android/i.test(userAgent)) {
+					elements.innerHTML =  "Android";
+				}
+
+				// iOS detection from: http://stackoverflow.com/a/9039885/177710
+				if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+					elements.innerHTML =  "ios";
+				}
+
+				elements.innerHTML =  "web";
+			
 	</script>
 </body>
 </html>
