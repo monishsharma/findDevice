@@ -5,23 +5,19 @@
 </head>
 <body>
 
-	<iframe style="display:none" height="0" width="0" id="loader"></iframe>
+	<p id="text"></p>
 
 	<script type="text/javascript">
-	(function(){
-			var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
-				isAndroid = navigator.userAgent.match('Android');
-				if (isiOS || isAndroid) {
-				// Load our custom protocol in the iframe, for Chrome and Opera this burys the error dialog (which is actually HTML)
-				// for iOS we will get a popup error if this protocol is not supported, but it won't block javascript
-				document.getElementById('loader').src = 'custom-protocol://my-app'+window.location.search+window.location.hash;
-			
-				fallbackLink = isAndroid ? 'https://play.google.com/store/apps/details?id=com.xamidea.app' :
-                                 			'itms-apps://itunes.apple.com/app/my-app/idxxxxxxxx?mt=8' ;
-			
+			 var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone'),
+        				isAndroid = navigator.userAgent.match('Android');
+
+			var elements = document.getElementById('text');
+				
+			if (isiOS || isAndroid) {
+				fallbackLink = isAndroid ? 'android' :
+                                 'ios' ;
 			}
-		window.setTimeout(function (){ window.location.replace(fallbackLink); }, 1);
-	 });
+			
 	</script>
 </body>
 </html>
