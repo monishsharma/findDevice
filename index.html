@@ -5,23 +5,23 @@
 </head>
 <body>
 
-	<p id="text"></p>
+	<iframe style="display:none" height="0" width="0" id="loader"></iframe>
 
 	<script type="text/javascript">
-			var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-			var elements = document.getElementById('text');
-				// Windows Phone must come first because its UA also contains "Android"
-				
-				if (/android/i.test(userAgent)) {
-					elements.innerHTML =  "Android";
-				}
-
-				// iOS detection from: http://stackoverflow.com/a/9039885/177710
-				if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-					elements.innerHTML =  "ios";
-				}
-				
+	(function(){
+			var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod'),
+				isAndroid = navigator.userAgent.match('Android');
+				if (isiOS || isAndroid) {
+				// Load our custom protocol in the iframe, for Chrome and Opera this burys the error dialog (which is actually HTML)
+				// for iOS we will get a popup error if this protocol is not supported, but it won't block javascript
+				document.getElementById('loader').src = 'custom-protocol://my-app'+window.location.search+window.location.hash;
 			
+				fallbackLink = isAndroid ? 'https://play.google.com/store/apps/details?id=com.xamidea.app' :
+                                 			'itms-apps://itunes.apple.com/app/my-app/idxxxxxxxx?mt=8' ;
+			
+			}
+		window.setTimeout(function (){ window.location.replace(fallbackLink); }, 1);
+	 });
 	</script>
 </body>
 </html>
