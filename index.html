@@ -8,18 +8,16 @@
 	<p id="text"></p>
 
 	<script type="text/javascript">
-	
+			var fallBackLink = document.getElementById('text');
 			 var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone'),
         				isAndroid = navigator.userAgent.match('Android');
 
 			var elements = document.getElementById('text');
-			if(isAndroid)
-			{
-				elements.innerHTML = 'and';
+			if(isAndroid){
+				location.replace("https://www.w3schools.com");
 			}
-			if(isiOS)
-			{
-				elements.innerHTML = 'ios';
+			else{
+				elements.innerHTML = "ios"
 			}
 			
 	</script>
