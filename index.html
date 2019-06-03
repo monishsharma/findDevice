@@ -3,97 +3,19 @@
 <head>
 	<title>Mobile Test</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
 </head>
 <style>
-
-.modal{
-	display: inline;
-}
+ 
 </style>
 <body >
+ <a href="intent:#Intent;action=com.androidsrc.launchfrombrowser;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;end">Click here to launch sample app</a>
 
-	<div id="loader center">
-
-			<button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#myModal">
-			Open modal
-		</button>
+</body>
+</div>
 
 
-
-
-		<div id="a"></div>
-		
-
-	</div>
-
-	<script type="text/javascript">
-	var and = `<div class="modal" id="myModal">
-					<div class="modal-dialog">
-						<div class="modal-content">
-
-						<!-- Modal Header -->
-						<div class="modal-header">
-							<h4 class="modal-title">Modal Heading</h4>
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-						</div>
-
-						<!-- Modal body -->
-						<div class="modal-body">
-							Modal body..
-						</div>
-
-						<!-- Modal footer -->
-						<div class="modal-footer">
-							<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-						</div>
-
-						</div>
-					</div>
-				</div>
-				`
-
-
-
-
-
-
-
-
-
-			 var fallbackLink = 'http://example.com/my-web-app/'+window.location.search+window.location.hash;
-			 var isiOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone'),
-						isAndroid = navigator.userAgent.match('Android'),
-						k = true;
-
-			 if (isAndroid || k) {
-				// Load our custom protocol in the iframe, for Chrome and Opera this burys the error dialog (which is actually HTML)
-				// for iOS we will get a popup error if this protocol is not supported, but it won't block javascript
-				// document.getElementById('loader').src = 'custom-protocol://my-app'+window.location.search+window.location.hash;
-				// The fallback link for Android needs to be https:// rather than market:// or the device will try to 
-				// load both URLs and only the last one will win. (Especially FireFox, where an "Are You Sure" dialog will appear)
-				// on iOS we can link directly to the App Store as our app switch will fire prior to the switch
-				// If you have a mobile web app, your fallback could be that instead. 
-				// fallbackLink = isAndroid ? 'https://play.google.com/store/apps/details?id=com.vuclip.viu' :
-				// 							'https://play.google.com/store/apps/details?id=com.vuclip.viu' ;
-				
-    }
-			//  window.setTimeout(function (){ window.location.assign(fallbackLink); }, 1);
-
-			
-			
-setTimeout(function() {
-   window.setTimeout(document.getElementById('a').innerHTML = and);
-});
-
-		
-
-	</script>
 </body>
 </html>
